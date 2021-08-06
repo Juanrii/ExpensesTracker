@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseGenerator from "./components/Expenses/ExpenseGenerator";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <NewExpense />
         <ExpenseGenerator expenses={expenses}/>
       </header>
     </div>
