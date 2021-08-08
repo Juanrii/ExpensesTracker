@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast, { Toaster } from "react-hot-toast";
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
@@ -56,6 +57,8 @@ const ExpenseForm = (props) => {
         });
     };
 
+    const notify = () => toast.success("New expense added :)");
+
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
@@ -88,8 +91,9 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__actions">
-                    <button type="submit">Add Expense</button>
+                    <button onClick={notify} type="submit">Add Expense</button>
                 </div>
+                <Toaster />
             </div>
         </form>
     );
