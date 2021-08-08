@@ -93,7 +93,7 @@ const ExpenseForm = (props) => {
                 <div className="new-expense__actions">
                     <button onClick={notify} type="submit">Add Expense</button>
                 </div>
-                <Toaster />
+                <Toaster position="bottom-right"/>
             </div>
         </form>
     );
