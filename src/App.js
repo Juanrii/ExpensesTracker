@@ -19,7 +19,7 @@ const DUMMY_EXPENSES = [
     id: "e2",
     title: "Car Insurance 2",
     amount: 333.12,
-    date: new Date(2021, 10, 22)
+    date: new Date(2022, 10, 22)
   }
 ];
 

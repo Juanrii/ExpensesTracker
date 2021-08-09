@@ -3,6 +3,7 @@ import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 import './ExpenseGenerator.css';
 import Card from '../UI/Card';
+import ExpensesList from './ExpensesList';
 
 const ExpenseGenerator = ({ expenses }) => {
     const [selectedDate, setSelectedDate] = useState('2021');
@@ -12,6 +13,10 @@ const ExpenseGenerator = ({ expenses }) => {
         console.log(`From ExpenseGenerator: Date Selected = ${selectedDate}`);
     };
 
+    const filteredExpenses = expenses.filter(exp => {
+        return exp.date.getFullYear().toString() === selectedDate;
+    });
+
     return (
         <>
             <Card className="expenses">
@@ -19,15 +24,9 @@ const ExpenseGenerator = ({ expenses }) => {
                     onSelectedDate={selectedDateHandler}
                     defaultSelected={selectedDate}    
                 />
-                {expenses.map(exp => (
-                    <ExpenseItem
-                        amount  = {exp.amount}
-                        date    = {exp.date}
-                        id      = {exp.id}
-                        key     = {exp.id} 
-                        title   = {exp.title}
-                    />
-                ))}
+                <ExpensesList 
+                    filteredExpenses={filteredExpenses}
+                />
             </Card>
         </>
     )
