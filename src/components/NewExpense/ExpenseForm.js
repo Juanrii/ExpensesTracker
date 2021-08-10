@@ -38,15 +38,15 @@ const ExpenseForm = (props) => {
     const submitHandler = e => {
         e.preventDefault();
 
-        const expenseDate = {
+        const expenseData = {
             title: userInput.enteredTitle,
-            amount: userInput.enteredAmount,
+            amount: +userInput.enteredAmount,
             date: new Date(userInput.enteredDate),
         };
 
 
         /* Pass data from Child to Parent */
-        props.onSaveExpenseData(expenseDate);
+        props.onSaveExpenseData(expenseData);
 
         /* Reset values after submit - Two-ways Binding, 
             pass a new value back into the input */

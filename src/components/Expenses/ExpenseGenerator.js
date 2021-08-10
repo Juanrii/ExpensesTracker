@@ -4,13 +4,13 @@ import ExpensesFilter from './ExpensesFilter';
 import './ExpenseGenerator.css';
 import Card from '../UI/Card';
 import ExpensesList from './ExpensesList';
+import ExpenseChart from './ExpenseChart';
 
 const ExpenseGenerator = ({ expenses }) => {
     const [selectedDate, setSelectedDate] = useState('2021');
 
     const selectedDateHandler = selectedDate => {
         setSelectedDate(selectedDate); 
-        console.log(`From ExpenseGenerator: Date Selected = ${selectedDate}`);
     };
 
     const filteredExpenses = expenses.filter(exp => {
@@ -24,6 +24,7 @@ const ExpenseGenerator = ({ expenses }) => {
                     onSelectedDate={selectedDateHandler}
                     defaultSelected={selectedDate}    
                 />
+                <ExpenseChart expenses={filteredExpenses}/>
                 <ExpensesList 
                     filteredExpenses={filteredExpenses}
                 />

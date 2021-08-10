@@ -1,10 +1,10 @@
 .new-expense__controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
 
 .new-expense__control label {
   font-weight: bold;
@@ -22,7 +22,6 @@
 }
 
 .new-expense__actions {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
+  margin-top: 16px;
+  text-align: right;
 }
