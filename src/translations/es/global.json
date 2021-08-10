@@ -1,0 +1,23 @@
+{
+    "ExpenseForm": {
+        "title": "Titulo",
+        "amount": "Monto",
+        "date": "Fecha",
+        "button": {
+            "cancel": "Cancelar",
+            "add": "Añadir Gasto"
+        }
+    },
+    "NewExpense": {
+        "notify": "Nuevo gasto añadido :)",
+        "button": {
+            "add": "Agregar Nuevo Gasto"
+        }
+    },
+    "ExpensesFilter": {
+        "filterBy": "Filtrar por año"
+    },
+    "ExpensesList" : {
+        "notFound": "Gastos no encontrados."
+    }
+}

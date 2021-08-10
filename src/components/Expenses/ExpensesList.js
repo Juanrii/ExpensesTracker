@@ -1,10 +1,13 @@
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
 import './ExpensesList.css';
+import { useTranslation } from 'react-i18next';
 
 const ExpensesList = ({ filteredExpenses }) => {
+    const [t, i18n] = useTranslation("global");
+
     if (filteredExpenses.length === 0) {
-        return <h2 className='expenses-list__fallback'>Found no expenses.</h2>
+        return <h2 className='expenses-list__fallback'>{t("ExpensesList.notFound")}</h2>
     }
 
     return (

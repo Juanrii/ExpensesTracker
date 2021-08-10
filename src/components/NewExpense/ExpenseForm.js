@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
+    const [t, i18n] = useTranslation("global");
     const [userInput, setUserInput] = useState({
         enteredTitle: '',
         enteredAmount: '',
@@ -51,7 +53,7 @@ const ExpenseForm = (props) => {
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
-                    <label>Title</label>
+                    <label>{t("ExpenseForm.title")}</label>
                     <input 
                         type="text" 
                         onChange={titleChangeHandler}
@@ -60,7 +62,7 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__control">
-                    <label>Amount</label>
+                    <label>{t("ExpenseForm.amount")}</label>
                     <input 
                         type="number" 
                         onChange={amountChangeHandler}
@@ -69,7 +71,7 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__control">
-                    <label>Date</label>
+                    <label>{t("ExpenseForm.date")}</label>
                     <input 
                         type="date" 
                         min="2015-01-01" 
@@ -80,8 +82,8 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__actions">
-                    <button onClick={props.onCancel} type="button">Cancel</button>
-                    <button type="submit">Add Expense</button>
+                    <button onClick={props.onCancel} type="button">{t("ExpenseForm.button.cancel")}</button>
+                    <button type="submit">{t("ExpenseForm.button.add")}</button>
                 </div>
             </div>
         </form>
