@@ -5,7 +5,7 @@ import Card from '../UI/Card';
 import ExpensesList from './ExpensesList';
 import ExpenseChart from './ExpenseChart';
 
-const ExpenseGenerator = ({ expenses }) => {
+const ExpenseGenerator = ({ expenses, translation}) => {
     const [selectedDate, setSelectedDate] = useState('2021');
 
     const selectedDateHandler = selectedDate => {
@@ -21,11 +21,13 @@ const ExpenseGenerator = ({ expenses }) => {
             <Card className="expenses">
                 <ExpensesFilter 
                     onSelectedDate={selectedDateHandler}
-                    defaultSelected={selectedDate}    
+                    defaultSelected={selectedDate}   
+                    translation={translation} 
                 />
                 <ExpenseChart expenses={filteredExpenses}/>
                 <ExpensesList 
                     filteredExpenses={filteredExpenses}
+                    translation={translation} 
                 />
             </Card>
         </>
