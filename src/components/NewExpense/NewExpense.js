@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast, { Toaster } from "react-hot-toast";
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
@@ -14,6 +15,7 @@ const NewExpense = props => {
         };
         props.onAddExpense(expenseData);
         setShowForm(false);
+        toast.success("New expense added :)");
     };
 
     const showFormHandler = () => {
@@ -33,6 +35,7 @@ const NewExpense = props => {
                     onSaveExpenseData={saveExpenseDataHandler}
                     onCancel={hideFormHandler}/>
             }
+            <Toaster position="bottom-right"/>
         </div>
     );
 };

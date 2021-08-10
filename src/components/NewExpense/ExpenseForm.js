@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import toast, { Toaster } from "react-hot-toast";
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
-    /*const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState(0);
-    const [enteredDate, setEnteredDate] = useState('');*/
-
     const [userInput, setUserInput] = useState({
         enteredTitle: '',
         enteredAmount: '',
@@ -14,10 +9,6 @@ const ExpenseForm = (props) => {
     });
 
     const titleChangeHandler = e => {
-        /*setUserInput({
-            ...userInput, // Copy object's value
-            enteredTitle: e.target.value
-        });*/
         setUserInput((prevState) => { // prevState: latest state snapshot
             return {...prevState, enteredTitle: e.target.value};
         });
@@ -44,7 +35,6 @@ const ExpenseForm = (props) => {
             date: new Date(userInput.enteredDate),
         };
 
-
         /* Pass data from Child to Parent */
         props.onSaveExpenseData(expenseData);
 
@@ -57,8 +47,6 @@ const ExpenseForm = (props) => {
         });
     };
 
-    const notify = () => toast.success("New expense added :)");
-
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
@@ -68,16 +56,16 @@ const ExpenseForm = (props) => {
                         type="text" 
                         onChange={titleChangeHandler}
                         value={userInput.enteredTitle}
+                        required={true}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
                     <input 
                         type="number" 
-                        min="0.1" 
-                        step="0.1"
                         onChange={amountChangeHandler}
                         value={userInput.enteredAmount}
+                        required={true}
                     />
                 </div>
                 <div className="new-expense__control">
@@ -88,13 +76,13 @@ const ExpenseForm = (props) => {
                         max="2022-12-31"
                         onChange={dateChangeHandler}
                         value={userInput.enteredDate}
+                        required={true}
                     />
                 </div>
                 <div className="new-expense__actions">
                     <button onClick={props.onCancel} type="button">Cancel</button>
-                    <button onClick={notify} type="submit">Add Expense</button>
+                    <button type="submit">Add Expense</button>
                 </div>
-                <Toaster position="bottom-right"/>
             </div>
         </form>
     );
