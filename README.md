@@ -2,7 +2,7 @@
 
 An application used to track and filter expenses based on user preferences, built with React, JavaScript, and CSS. But all the focus of this is on practicing React :)
 ## Project Status
-This project is currently in development. August 5, 2021.
+This project is currently in development. August 10, 2021.
 
 ## Installation and Setup Instructions
 
