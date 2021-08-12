@@ -1,0 +1,23 @@
+{
+    "ExpenseForm": {
+        "title": "Title",
+        "amount": "Amount",
+        "date": "Date",
+        "button": {
+            "cancel": "Cancel",
+            "add": "Add Expense"
+        }
+    },
+    "NewExpense": {
+        "notify": "New expense added :)",
+        "button": {
+            "add": "Add New Expense"
+        }
+    },
+    "ExpensesFilter": {
+        "filterBy": "Filter by year"
+    },
+    "ExpensesList" : {
+        "notFound": "Found no expenses."
+    }
+}

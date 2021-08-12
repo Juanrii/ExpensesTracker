@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ExpenseGenerator from "./components/Expenses/ExpenseGenerator";
 import NewExpense from "./components/NewExpense/NewExpense";
+import { useTranslation } from 'react-i18next';
 
 const DUMMY_EXPENSES = [
   {
@@ -25,6 +26,7 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
   const [expenses, setExpense] = useState(DUMMY_EXPENSES);
+  const [t, i18n] = useTranslation("global");
 
   const addExpenseHandler = expense => {
     setExpense((prevExpenses) => {
@@ -35,8 +37,16 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <NewExpense onAddExpense={addExpenseHandler}/>
-        <ExpenseGenerator expenses={expenses}/>
+        <button onClick={() => i18n.changeLanguage("es")}>ES</button>
+        <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+        <NewExpense 
+          onAddExpense={addExpenseHandler} 
+          translation={t}
+        />
+        <ExpenseGenerator 
+          expenses={expenses} 
+          translation={t}
+        />
       </header>
     </div>
   );

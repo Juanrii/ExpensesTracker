@@ -51,7 +51,7 @@ const ExpenseForm = (props) => {
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
-                    <label>Title</label>
+                    <label>{props.translation("ExpenseForm.title")}</label>
                     <input 
                         type="text" 
                         onChange={titleChangeHandler}
@@ -60,7 +60,7 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__control">
-                    <label>Amount</label>
+                    <label>{props.translation("ExpenseForm.amount")}</label>
                     <input 
                         type="number" 
                         onChange={amountChangeHandler}
@@ -69,7 +69,7 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__control">
-                    <label>Date</label>
+                    <label>{props.translation("ExpenseForm.date")}</label>
                     <input 
                         type="date" 
                         min="2015-01-01" 
@@ -80,8 +80,8 @@ const ExpenseForm = (props) => {
                     />
                 </div>
                 <div className="new-expense__actions">
-                    <button onClick={props.onCancel} type="button">Cancel</button>
-                    <button type="submit">Add Expense</button>
+                    <button onClick={props.onCancel} type="button">{props.translation("ExpenseForm.button.cancel")}</button>
+                    <button type="submit">{props.translation("ExpenseForm.button.add")}</button>
                 </div>
             </div>
         </form>

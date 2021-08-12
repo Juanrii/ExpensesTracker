@@ -3,8 +3,6 @@ import toast, { Toaster } from "react-hot-toast";
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
-/* TODO: Add react hot toast for notifications */
-
 const NewExpense = props => {
     const [showForm, setShowForm] = useState(false);
 
@@ -15,7 +13,7 @@ const NewExpense = props => {
         };
         props.onAddExpense(expenseData);
         setShowForm(false);
-        toast.success("New expense added :)");
+        toast.success(props.translation("NewExpense.notify"));
     };
 
     const showFormHandler = () => {
@@ -28,12 +26,14 @@ const NewExpense = props => {
     return (
         <div className="new-expense">
             {!showForm &&
-                <button onClick={showFormHandler}>Add New Expense</button>
+                <button onClick={showFormHandler}>{props.translation("NewExpense.button.add")}</button>
             }
             {showForm &&
                 <ExpenseForm 
                     onSaveExpenseData={saveExpenseDataHandler}
-                    onCancel={hideFormHandler}/>
+                    onCancel={hideFormHandler}
+                    translation={props.translation}    
+                />
             }
             <Toaster position="bottom-right"/>
         </div>
