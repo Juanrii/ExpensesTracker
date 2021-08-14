@@ -27,6 +27,7 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpense] = useState(DUMMY_EXPENSES);
   const [t, i18n] = useTranslation("global");
+  const [buttonLabel, setButtonLabel] = useState(false);
 
   const addExpenseHandler = expense => {
     setExpense((prevExpenses) => {
@@ -34,11 +35,17 @@ const App = () => {
     });
   };
 
+  const onChangeLabelHandle = buttonLabel => {
+    setButtonLabel(!buttonLabel);
+    let language = '';
+    buttonLabel ? language = "en" : language = "es";
+    return i18n.changeLanguage(language);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={() => i18n.changeLanguage("es")}>ES</button>
-        <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+        <button onClick={onChangeLabelHandle}>{buttonLabel ? "EN" : "ES"}</button>
         <NewExpense 
           onAddExpense={addExpenseHandler} 
           translation={t}
