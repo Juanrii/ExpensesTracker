@@ -35,7 +35,7 @@ const App = () => {
     });
   };
 
-  const onChangeLabelHandle = buttonLabel => {
+  const onChangeLabelHandle = _ => {
     setButtonLabel(!buttonLabel);
     let language = '';
     buttonLabel ? language = "en" : language = "es";
